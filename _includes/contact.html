@@ -1,0 +1,38 @@
+{% assign s = site.data.site %}
+
+<div class="contact-block">
+  <div class="field">Email</div>
+  <div class="val">
+    {% for email in s.emails %}
+      <a class="link" href="mailto:{{ email }}">{{ email }}</a>{% unless forloop.last %}<br>{% endunless %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="contact-block">
+  <div class="field">Supervisor</div>
+  <div class="val">
+    <a class="link" href="{{ s.supervisor.url }}">{{ s.supervisor.name }}</a>
+  </div>
+</div>
+
+<div class="contact-block">
+  <div class="field">Address</div>
+  <div class="val">
+    {% for line in s.address %}{{ line }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}
+  </div>
+</div>
+
+<div class="contact-block">
+  <div class="field">Elsewhere</div>
+  <div class="val">
+    {% assign shown = 0 %}
+    {% for link in s.links %}
+      {% if link.url and link.url != '' %}
+        {% if shown > 0 %} &nbsp;·&nbsp; {% endif %}
+        <a class="link" href="{{ link.url }}">{{ link.name }}</a>
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

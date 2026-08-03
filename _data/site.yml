@@ -1,0 +1,28 @@
+name: Raunaq Rai
+role: PhD Student
+department: Department of Physics & Astronomy
+institution: University College London
+
+emails:
+  - raunaq.rai.25@ucl.ac.uk
+  - raunaq.rai@hotmail.co.uk
+
+supervisor:
+  name: Dr Guido Roberts-Borsani
+  url: https://robertsborsani.wixsite.com/astro
+
+address:
+  - Department of Physics and Astronomy
+  - University College London
+  - Gower Street, London WC1E 6BT
+
+# Add a url to make a link appear. Entries with an empty url are skipped.
+links:
+  - name: GitHub
+    url: https://github.com/raunaq-rai
+  - name: ADS
+    url:
+  - name: arXiv
+    url:
+  - name: ORCID
+    url:
