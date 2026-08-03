@@ -1,0 +1,19 @@
+# Jekyll build output
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby
+.bundle/
+vendor/
+Gemfile.lock
+
+# macOS
+.DS_Store
+
+# Working notes and source material, not part of the site
+notes/
+*.npz
+glass_nircam_image.png
+*.CR2
+*.tif
