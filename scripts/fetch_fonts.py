@@ -54,7 +54,17 @@ def main() -> None:
         " Font License 1.1; see assets/fonts/OFL.txt. */",
         "",
     ]
-    downloaded = 0
+
+    # Clear stale files so a re-run cannot leave orphans behind.
+    for stale in FONT_DIR.glob("*.woff2"):
+        stale.unlink()
+
+    # Both families are variable fonts, so Google serves the SAME file for every
+    # weight in a subset and merely varies the font-weight declaration. Keyed on
+    # the remote URL, each file is fetched and stored once, and every @font-face
+    # block that uses it points at that one copy. Naming by weight instead would
+    # store three byte-identical files and make browsers download each of them.
+    by_url: dict[str, str] = {}
 
     for subset, block in blocks:
         if subset not in KEEP_SUBSETS:
@@ -66,19 +76,22 @@ def main() -> None:
         if not (url_match and family_match and weight_match):
             raise SystemExit(f"Could not parse a {subset} block.")
 
+        remote = url_match.group(1)
         family = family_match.group(1).lower().replace(" ", "-")
-        weight = weight_match.group(1)
-        name = f"{family}-{weight}-{subset}.woff2"
 
-        (FONT_DIR / name).write_bytes(fetch(url_match.group(1)))
-        downloaded += 1
+        name = by_url.get(remote)
+        if name is None:
+            name = f"{family}-{subset}.woff2"
+            (FONT_DIR / name).write_bytes(fetch(remote))
+            by_url[remote] = name
 
-        out.append(block.replace(url_match.group(1), f"/assets/fonts/{name}"))
+        out.append(block.replace(remote, f"/assets/fonts/{name}"))
         out.append("")
 
     CSS_OUT.write_text("\n".join(out), encoding="utf-8")
     total_kb = sum(p.stat().st_size for p in FONT_DIR.glob("*.woff2")) / 1024
-    print(f"Downloaded {downloaded} files, {total_kb:.0f} kB total")
+    print(f"Downloaded {len(by_url)} unique files, {total_kb:.0f} kB total")
+    print(f"Declared {len(out) // 2} @font-face rules")
     print(f"Wrote {CSS_OUT.relative_to(ROOT)}")
 
 
