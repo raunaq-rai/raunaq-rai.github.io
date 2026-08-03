@@ -1,0 +1,17 @@
+- name: jwspecfit
+  tagline: Emission-line fitting, MCMC, and chemical abundances for JWST NIRSpec spectra.
+  meta: Python · MIT
+  description: >-
+    A Python package for measuring emission lines in JWST/NIRSpec spectra and turning
+    them into chemical abundances. Fits line profiles with MCMC for full posterior
+    uncertainties, and derives direct-method abundances for oxygen, nitrogen and other
+    ions. Documented, tested, and archived on Zenodo.
+  links:
+    - name: GitHub
+      url: https://github.com/raunaq-rai/jwspecfit
+    - name: Zenodo 10.5281/zenodo.19679793
+      url: https://doi.org/10.5281/zenodo.19679793
+    - name: Docs
+      url: https://jwspecfit.readthedocs.io/
+    - name: PyPI
+      url: https://pypi.org/project/jwspecfit/

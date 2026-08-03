@@ -26,4 +26,10 @@ Science, then did an MPhil in Data Intensive Science at Cambridge.</p>
 <p class="body-text">Away from the desk I am usually somewhere between a hockey pitch, a golf course
 and a tennis court, playing hockey for Richmond Hockey Club. I am also building
 <strong>Bluebell AI</strong>, a startup working to level the playing field in education.
-<a class="link" href="https://bluebellai.org">bluebellai.org</a></p>
+<a class="link" href="https://bluebellai.org">bluebellai.org</a>
+
+<div class="rule" style="margin:18px 0"></div>
+<div class="kicker">Recent</div>
+{% for item in site.data.software limit:1 %}
+  {% include software-card.html item=item %}
+{% endfor %}</p>

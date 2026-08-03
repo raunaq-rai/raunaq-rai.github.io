@@ -1,0 +1,11 @@
+---
+layout: page
+title: Software
+permalink: /software/
+---
+<p class="body-text measure" style="margin-top:16px">Packages I have written and released. Everything
+here is open source and archived with a DOI.</p>
+
+{% for item in site.data.software %}
+  {% include software-card.html item=item full=true %}
+{% endfor %}
