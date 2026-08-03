@@ -1,0 +1,29 @@
+title: Raunaq Rai
+description: >-
+  PhD student in the Department of Physics and Astronomy at University College
+  London, working on the first galaxies and black holes with JWST.
+url: "https://raunaq-rai.github.io"
+baseurl: ""
+lang: en-GB
+
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - scripts/
+  - tests/
+  - notes/
+  - vendor/
+  - .bundle/
+
+# No theme, no plugins. Every layout in this repository is hand-written, so the
+# `theme` key is omitted entirely rather than set to null.
+plugins: []
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
