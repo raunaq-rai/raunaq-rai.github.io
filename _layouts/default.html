@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.url == '/' %}{{ site.title }}{% else %}{{ page.title }} · {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+</head>
+<body>
+  <div class="banner"><b>In development</b> &nbsp;·&nbsp; content is still being added</div>
+  <div class="wrap">
+    {{ content }}
+    <div class="rule"></div>
+    <footer>&copy; {{ 'now' | date: "%Y" }} Raunaq Rai</footer>
+  </div>
+</body>
+</html>

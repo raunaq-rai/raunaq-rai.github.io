@@ -1,0 +1,7 @@
+<nav class="nav{% if include.row %} row{% endif %}" aria-label="Primary">
+  <a href="/"          {% if page.url == '/' %}aria-current="page"{% endif %}>About</a>
+  <a href="/research/" {% if page.url contains '/research' %}aria-current="page"{% endif %}>Research</a>
+  <a href="/talks/"    {% if page.url contains '/talks' %}aria-current="page"{% endif %}>Talks</a>
+  <a href="/software/" {% if page.url contains '/software' %}aria-current="page"{% endif %}>Software</a>
+  <a href="/cv/"       {% if page.url contains '/cv' %}aria-current="page"{% endif %}>CV</a>
+</nav>
