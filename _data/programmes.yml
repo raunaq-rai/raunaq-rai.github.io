@@ -1,0 +1,21 @@
+# One entry per JWST observing programme. Fields: acronym, title, id, cycle,
+# category, role, pi, url. Titles are the official proposal titles as filed with
+# STScI; `url` is the public programme information page for that id.
+
+- acronym: OMEGA
+  title: "Unveiling Early Cosmic Enrichment: Direct Metallicities in z>6 Galaxies from Deep JWST Spectroscopy"
+  id: 7729
+  cycle: 4
+  category: GO
+  role: Co-Investigator
+  pi: Guido Roberts-Borsani
+  url: https://www.stsci.edu/jwst/science-execution/program-information?id=7729
+
+- acronym: DAJE-JWST
+  title: "The Core of the Iceberg: the Physics of Sub-L* Galaxies in the First Billion Years"
+  id: 9645
+  cycle: 5
+  category: GO
+  role: Co-Investigator
+  pi: Tommaso L. Treu
+  url: https://www.stsci.edu/jwst/science-execution/program-information?id=9645

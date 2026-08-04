@@ -12,6 +12,23 @@ formation and black hole growth.</p>
 
 <div class="rule" style="margin:30px 0 22px"></div>
 
+<div class="kicker">Observing programmes</div>
+{% for prog in site.data.programmes %}
+  <div class="card">
+    <div class="card-head">
+      <span class="card-title">{{ prog.acronym }}</span>
+      <span class="card-meta">JWST Cycle {{ prog.cycle }} &nbsp;·&nbsp; {{ prog.category }} {{ prog.id }}</span>
+    </div>
+    <p class="body-text" style="margin:6px 0 10px">{{ prog.title }}</p>
+    <p class="body-text" style="margin:0 0 10px; color:var(--muted)">{{ prog.role }} &nbsp;·&nbsp; PI {{ prog.pi }}</p>
+    <div class="card-links">
+      <a class="link" href="{{ prog.url }}">Programme information</a>
+    </div>
+  </div>
+{% endfor %}
+
+<div class="rule" style="margin:30px 0 22px"></div>
+
 <div class="kicker">Explore the data</div>
 <h2 class="section-title">A stack of 135 galaxies at <i>z</i> &gt; 6</h2>
 <p class="body-text measure" style="margin-top:10px">Rest-frame 1000 to 7500 Å, from JWST NIRSpec.
