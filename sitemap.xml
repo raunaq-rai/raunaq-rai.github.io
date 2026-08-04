@@ -1,0 +1,21 @@
+---
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- comment -%}
+  Hand-written because the site runs with `plugins: []`. Pretty permalinks mean
+  every real page ends in a slash, so that test alone excludes this file,
+  robots.txt and the static assets.
+{%- endcomment -%}
+{%- for p in site.pages -%}
+{%- assign tail = p.url | slice: -1 -%}
+{%- if tail == '/' %}
+  <url>
+    <loc>{{ site.url }}{{ p.url }}</loc>
+  </url>
+{%- endif -%}
+{%- endfor %}
+</urlset>
