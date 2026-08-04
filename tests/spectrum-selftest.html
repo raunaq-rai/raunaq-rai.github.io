@@ -1,0 +1,93 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Spectrum self-test</title>
+<style>body{font:14px/1.6 monospace;padding:24px} .pass{color:#1a7f37} .fail{color:#b3261e;font-weight:700}</style>
+<h1>Spectrum self-test</h1>
+<div id="out"></div>
+<script src="../assets/js/spectrum.js"></script>
+<script>
+const out = document.getElementById('out');
+let failures = 0;
+
+function check(name, condition, detail) {
+  const ok = !!condition;
+  if (!ok) failures++;
+  out.insertAdjacentHTML('beforeend',
+    `<div class="${ok ? 'pass' : 'fail'}">${ok ? 'PASS' : 'FAIL'} ${name}${ok || !detail ? '' : ' — ' + detail}</div>`);
+}
+
+const S = window.Spectrum;
+
+// --- yRangeFor ---
+const flux = [0, 1, 2, 50, 2, 1, 0];
+const err  = [0.1, 0.1, 0.1, 0.5, 0.1, 0.1, 0.1];
+
+const full = S.yRangeFor(flux, err, 0, 6, false);
+check('yRangeFor spans the peak when it is in view', full.hi > 50 && full.lo <= 0,
+      JSON.stringify(full));
+
+const clipped = S.yRangeFor(flux, err, 0, 2, false);
+check('yRangeFor excludes the peak when it is out of view', clipped.hi < 10,
+      JSON.stringify(clipped));
+
+const banded = S.yRangeFor(flux, err, 3, 3, true);
+check('yRangeFor accounts for the uncertainty band', banded.hi >= 50.5,
+      JSON.stringify(banded));
+
+const flat = S.yRangeFor([5, 5, 5], [0, 0, 0], 0, 2, false);
+check('yRangeFor returns a non-zero range for flat data', flat.hi > flat.lo,
+      JSON.stringify(flat));
+
+const nanny = S.yRangeFor([NaN, 1, NaN, 3], [0, 0, 0, 0], 0, 3, false);
+check('yRangeFor ignores non-finite samples', isFinite(nanny.lo) && isFinite(nanny.hi),
+      JSON.stringify(nanny));
+
+const empty = S.yRangeFor([], [], 0, 0, false);
+check('yRangeFor survives an empty slice', isFinite(empty.lo) && isFinite(empty.hi),
+      JSON.stringify(empty));
+
+// --- chooseLabels ---
+const emission = S.LINES.filter(l => l.kind === 'emission');
+
+const wide = S.chooseLabels(emission, 1000, 7500, 960, 11, 'emission');
+check('chooseLabels culls at full range', wide.length < emission.length,
+      `${wide.length} of ${emission.length}`);
+
+// At this zoom the O III] 1660/1666 pair is 6 Å apart, about 7 px, so one of the
+// two is legitimately culled. Everything else in the window must survive.
+const zoomed = S.chooseLabels(emission, 1180, 1980, 960, 11, 'emission');
+const uvTotal = emission.filter(l => l.wave > 1180 && l.wave < 1980).length;
+check('chooseLabels keeps nearly every UV line when zoomed in', zoomed.length >= uvTotal - 1,
+      `${zoomed.length} of ${uvTotal}`);
+
+const uvKept = new Set(zoomed.map(l => l.label));
+check('chooseLabels keeps the nitrogen lines when zoomed in',
+      uvKept.has('N IV]') && uvKept.has('N III]') && uvKept.has('C III]') && uvKept.has('Si III]'),
+      [...uvKept].join(', '));
+
+const tight = S.chooseLabels(emission, 1650, 1680, 960, 11, 'emission');
+check('chooseLabels separates the O III] doublet at tight zoom', tight.length === 2,
+      `${tight.length}`);
+
+const kept = new Set(wide.map(l => l.label));
+check('chooseLabels keeps tier 0 lines first', kept.has('C III]') && kept.has('Hα'),
+      [...kept].join(', '));
+
+const sorted = zoomed.every((l, i, a) => i === 0 || a[i - 1].wave <= l.wave);
+check('chooseLabels returns ascending wavelengths', sorted);
+
+const none = S.chooseLabels(emission, 2100, 3500, 960, 11, 'emission');
+check('chooseLabels returns nothing in an empty region', none.length === 0,
+      `${none.length}`);
+
+const absorption = S.LINES.filter(l => l.kind === 'absorption');
+check('absorption list has nine lines', absorption.length === 9, `${absorption.length}`);
+check('emission list has thirty-one lines', emission.length === 31, `${emission.length}`);
+
+const absZoom = S.chooseLabels(S.LINES, 1180, 1980, 960, 11, 'absorption');
+check('chooseLabels returns only absorption lines when asked for them',
+      absZoom.every(l => l.kind === 'absorption'), absZoom.map(l => l.kind).join(','));
+
+out.insertAdjacentHTML('beforeend',
+  `<h2 class="${failures ? 'fail' : 'pass'}">${failures ? failures + ' FAILURES' : 'ALL PASSED'}</h2>`);
+</script>
