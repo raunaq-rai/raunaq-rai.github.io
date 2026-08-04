@@ -18,26 +18,26 @@
     { label: 'Si III]',             wave: 1883.0,   tier: 2, kind: 'emission' },
     { label: 'C III]',              wave: 1906.734, tier: 0, kind: 'emission' },
     { label: '[O II]',              wave: 3727.09,  tier: 0, kind: 'emission' },
-    { label: 'H10',                 wave: 3797.9,   tier: 2, kind: 'emission' },
-    { label: 'H9',                  wave: 3835.4,   tier: 2, kind: 'emission' },
-    { label: 'Ne III',              wave: 3869,     tier: 1, kind: 'emission' },
-    { label: 'H8 + He I',           wave: 3889,     tier: 2, kind: 'emission' },
-    { label: 'Hε + Ne III',    wave: 3970,     tier: 2, kind: 'emission' },
-    { label: 'Hδ',             wave: 4102.5,   tier: 1, kind: 'emission' },
-    { label: 'Hγ',             wave: 4340.5,   tier: 1, kind: 'emission' },
-    { label: '[O III] 4363',        wave: 4364,     tier: 0, kind: 'emission' },
-    { label: 'He I',                wave: 4471.7,   tier: 2, kind: 'emission' },
-    { label: 'Hβ',             wave: 4861.3,   tier: 0, kind: 'emission' },
-    { label: '[O III]',             wave: 4958.9,   tier: 1, kind: 'emission' },
-    { label: '[O III]',             wave: 5008,     tier: 0, kind: 'emission' },
-    { label: '[N II]',              wave: 6548.0,   tier: 1, kind: 'emission' },
-    { label: 'Hα',             wave: 6562.8,   tier: 0, kind: 'emission' },
-    { label: '[N II]',              wave: 6583.4,   tier: 0, kind: 'emission' },
-    { label: '[S II]',              wave: 6716.4,   tier: 1, kind: 'emission' },
-    { label: '[S II]',              wave: 6730.8,   tier: 2, kind: 'emission' },
+    { label: 'H10',                 wave: 3799.0,   tier: 2, kind: 'emission' },
+    { label: 'H9',                  wave: 3836.5,   tier: 2, kind: 'emission' },
+    { label: '[Ne III]',            wave: 3869.86,  tier: 1, kind: 'emission' },
+    { label: 'H8 + He I',           wave: 3890.16,  tier: 2, kind: 'emission' },
+    { label: 'Hε + [Ne III]',  wave: 3971.20,  tier: 2, kind: 'emission' },
+    { label: 'Hδ',             wave: 4102.89,  tier: 1, kind: 'emission' },
+    { label: 'Hγ',             wave: 4341.69,  tier: 1, kind: 'emission' },
+    { label: '[O III] 4363',        wave: 4364.44,  tier: 0, kind: 'emission' },
+    { label: 'He I',                wave: 4472.73,  tier: 2, kind: 'emission' },
+    { label: 'Hβ',             wave: 4862.69,  tier: 0, kind: 'emission' },
+    { label: '[O III]',             wave: 4960.29,  tier: 1, kind: 'emission' },
+    { label: '[O III]',             wave: 5008.24,  tier: 0, kind: 'emission' },
+    { label: '[N II]',              wave: 6549.86,  tier: 1, kind: 'emission' },
+    { label: 'Hα',             wave: 6564.61,  tier: 0, kind: 'emission' },
+    { label: '[N II]',              wave: 6585.27,  tier: 0, kind: 'emission' },
+    { label: '[S II]',              wave: 6718.29,  tier: 1, kind: 'emission' },
+    { label: '[S II]',              wave: 6732.68,  tier: 2, kind: 'emission' },
 
     { label: 'Si II',               wave: 1260.422, tier: 1, kind: 'absorption' },
-    { label: 'O I + S II',          wave: 1302,     tier: 0, kind: 'absorption' },
+    { label: 'O I + Si II',         wave: 1302,     tier: 0, kind: 'absorption' },
     { label: 'C II',                wave: 1334.532, tier: 0, kind: 'absorption' },
     { label: 'Si IV',               wave: 1393.3,   tier: 0, kind: 'absorption' },
     { label: 'Si IV',               wave: 1402.770, tier: 1, kind: 'absorption' },
@@ -104,7 +104,7 @@
 
   var PAPER = '#FCFBF8', INK = '#16181C', RULE = '#E3DED3';
   var ACCENT = '#1F3A5F', OXIDE = '#8C3A2B', MUTED = '#6E6E68';
-  var PAD = { top: 46, right: 14, bottom: 34, left: 52 };
+  var PAD = { top: 58, right: 14, bottom: 34, left: 52 };
 
   function mount(root) {
     var canvas = root.querySelector('canvas[data-spectrum]');
