@@ -1,5 +1,10 @@
 # One entry per JWST observing programme, in the order they should appear.
 # Fields: acronym, title, id, cycle, category, hours, role, pi, url.
+#
+# `role` must match the programme's formal investigator list: use
+# Co-Investigator only where the name appears on the STScI record, and
+# Contributor for collaboration work on programmes led by others.
+#
 # Titles are the official proposal titles as filed with STScI; `hours` is the
 # external allocation shown on that programme's information page.
 
@@ -19,6 +24,16 @@
   cycle: 4
   category: GO
   hours: 67.8
-  role: Co-Investigator
+  role: Contributor
   pi: Guido Roberts-Borsani
   url: https://www.stsci.edu/jwst/science-execution/program-information?id=7729
+
+- acronym: GLASS
+  title: "A deep look into the physics of the interstellar medium 360 Myr after the Big Bang"
+  id: 7201
+  cycle: 4
+  category: GO
+  hours: 29.1
+  role: Contributor
+  pi: Marco Castellano
+  url: https://www.stsci.edu/jwst/science-execution/program-information?id=7201
