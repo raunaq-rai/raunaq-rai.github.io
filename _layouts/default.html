@@ -8,6 +8,50 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{%- if page.url == '/' -%}
+{%- assign s = site.data.site -%}
+{%- comment -%}
+  Structured data for the homepage only. Everything here comes from _data/site.yml,
+  so filling in the empty ORCID / ADS / arXiv urls there also extends `sameAs`.
+{%- endcomment -%}
+{%- assign profiles = s.links | where_exp: "l", "l.url" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ s.name }}",
+    "alternateName": "Raunaq Rai",
+    "url": "{{ site.url }}/",
+    "image": "{{ site.url }}/assets/img/portrait-1600.jpg",
+    "jobTitle": "{{ s.role }}",
+    "description": "{{ site.description | strip }}",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "{{ s.institution }}",
+      "url": "https://www.ucl.ac.uk/",
+      "department": {
+        "@type": "Organization",
+        "name": "{{ s.department }}"
+      }
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Durham University", "url": "https://www.durham.ac.uk/" },
+      { "@type": "CollegeOrUniversity", "name": "University of Cambridge", "url": "https://www.cam.ac.uk/" }
+    ],
+    "knowsAbout": [
+      "Astrophysics",
+      "Galaxy evolution",
+      "James Webb Space Telescope",
+      "High-redshift galaxies",
+      "Emission-line diagnostics",
+      "Chemical abundances"
+    ]{% if profiles.size > 0 %},
+    "sameAs": [{% for l in profiles %}
+      "{{ l.url }}"{% unless forloop.last %},{% endunless %}{% endfor %}
+    ]{% endif %}
+  }
+  </script>
+{%- endif %}
 </head>
 <body>
   <div class="wrap">
