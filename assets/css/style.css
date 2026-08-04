@@ -11,8 +11,6 @@
   --accent-soft: #C3CEDD;
   --panel: #FAF8F3;
   --oxide: #8C3A2B;
-  --banner-bg: #F4EFE2;
-  --banner-ink: #5E5030;
   --ph-bg: #FAF7EF;
   --ph-rule: #D8D0BE;
   --ph-ink: #8A7448;
@@ -53,19 +51,6 @@ h1, h2, h3 { font-weight: 300; letter-spacing: -0.02em; margin: 0; line-height: 
 p { margin: 0 0 13px; }
 
 .rule { height: 1px; background: var(--rule); }
-
-/* In-development banner */
-.banner {
-  background: var(--banner-bg);
-  border-bottom: 1px solid var(--rule);
-  font-family: var(--sans);
-  font-size: 10.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--banner-ink);
-  padding: 8px var(--pad);
-}
-.banner b { font-weight: 600; }
 
 /* Home masthead */
 .masthead { padding: 34px var(--pad) 20px; }
