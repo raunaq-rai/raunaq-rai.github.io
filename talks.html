@@ -9,15 +9,13 @@ permalink: /talks/
   {% for talk in site.data.talks %}
     <div class="card">
       <div class="card-head">
-        <span class="card-title">{{ talk.title }}</span>
+        <span class="val">{{ talk.location }}{% if talk.event %}, {{ talk.event }}{% endif %}{% if talk.kind %} &nbsp;·&nbsp; {{ talk.kind }}{% endif %}</span>
         <span class="card-meta">{{ talk.date }}</span>
       </div>
+      <div class="card-title" style="margin-top:7px">{{ talk.title }}</div>
       {% if talk.note %}
-        <p class="body-text" style="margin:6px 0 10px">{{ talk.note }}</p>
+        <p class="body-text" style="margin:6px 0 0">{{ talk.note }}</p>
       {% endif %}
-      <div class="val">
-        {{ talk.location }}{% if talk.event %}, {{ talk.event }}{% endif %}{% if talk.kind %} &nbsp;·&nbsp; {{ talk.kind }}{% endif %}
-      </div>
     </div>
   {% endfor %}
 {% else %}
