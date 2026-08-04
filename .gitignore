@@ -11,6 +11,11 @@ Gemfile.lock
 # macOS
 .DS_Store
 
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
 # Working notes and source material, not part of the site
 notes/
 *.npz
