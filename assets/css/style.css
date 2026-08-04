@@ -112,7 +112,10 @@ p { margin: 0 0 13px; }
   gap: 44px;
   padding: 32px var(--pad) 34px;
 }
-.portrait { width: 100%; display: block; }
+/* height: auto is load-bearing. The img carries width and height attributes so the
+   browser reserves the right space before loading, and without this the height
+   attribute would win and stretch the picture. */
+.portrait { width: 100%; height: auto; display: block; }
 
 /* Contact fields */
 .field {
