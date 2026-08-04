@@ -16,6 +16,10 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
+# Agent skills installed via `npx skills add`, not part of the site
+.agents/
+skills-lock.json
+
 # Working notes and source material, not part of the site
 notes/
 *.npz
