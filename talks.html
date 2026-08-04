@@ -16,7 +16,7 @@ permalink: /talks/
         <p class="body-text" style="margin:6px 0 10px">{{ talk.note }}</p>
       {% endif %}
       <div class="val">
-        {% if talk.event %}{{ talk.event }}, {% endif %}{{ talk.location }}{% if talk.kind %} &nbsp;·&nbsp; {{ talk.kind }}{% endif %}
+        {{ talk.location }}{% if talk.event %}, {{ talk.event }}{% endif %}{% if talk.kind %} &nbsp;·&nbsp; {{ talk.kind }}{% endif %}
       </div>
     </div>
   {% endfor %}

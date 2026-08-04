@@ -1,5 +1,5 @@
 # One entry per talk, newest first; they render in file order.
-# Fields: title, note (optional), event (optional), location, date,
+# Fields: title, note (optional), location, event (optional), date,
 # kind (optional: invited, contributed or poster).
 
 - title: A Population Study of the First Billion Years
