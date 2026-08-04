@@ -102,6 +102,7 @@ def write_fallback_png(source: dict[str, np.ndarray]) -> None:
 
 
 def main() -> None:
+    """Convert the source stack into the JSON and PNG assets the site ships."""
     data = np.load(SOURCE_NPZ)
     source = {key: data[key] for key in data.files}
 
