@@ -2,49 +2,51 @@
 (function (global) {
   'use strict';
 
+  // Wavelengths are vacuum, taken from jwspecfit's REST_LINES_A
+  // (src/jwspecfit/lines.py) so the site and the analysis agree exactly.
   // tier 0 is drawn first when space is short, tier 2 last.
   var LINES = [
-    { label: 'Lyα',            wave: 1215.67,  tier: 0, kind: 'emission' },
-    { label: 'N V',                 wave: 1240,     tier: 1, kind: 'emission' },
-    { label: 'Si II',               wave: 1263,     tier: 2, kind: 'emission' },
-    { label: 'Si IV',               wave: 1404,     tier: 2, kind: 'emission' },
-    { label: 'N IV]',               wave: 1486.5,   tier: 0, kind: 'emission' },
-    { label: 'Si II',               wave: 1530,     tier: 2, kind: 'emission' },
-    { label: 'C IV',                wave: 1550,     tier: 0, kind: 'emission' },
-    { label: 'He II',               wave: 1640.42,  tier: 1, kind: 'emission' },
-    { label: 'O III]',              wave: 1660,     tier: 2, kind: 'emission' },
-    { label: 'O III]',              wave: 1666,     tier: 1, kind: 'emission' },
-    { label: 'N III]',              wave: 1749.67,  tier: 0, kind: 'emission' },
-    { label: 'Si III]',             wave: 1883.0,   tier: 2, kind: 'emission' },
-    { label: 'C III]',              wave: 1906.734, tier: 0, kind: 'emission' },
-    { label: '[O II]',              wave: 3727.09,  tier: 0, kind: 'emission' },
-    { label: 'H10',                 wave: 3799.0,   tier: 2, kind: 'emission' },
-    { label: 'H9',                  wave: 3836.5,   tier: 2, kind: 'emission' },
-    { label: '[Ne III]',            wave: 3869.86,  tier: 1, kind: 'emission' },
-    { label: 'H8 + He I',           wave: 3890.16,  tier: 2, kind: 'emission' },
-    { label: 'Hε + [Ne III]',  wave: 3971.20,  tier: 2, kind: 'emission' },
-    { label: 'Hδ',             wave: 4102.89,  tier: 1, kind: 'emission' },
-    { label: 'Hγ',             wave: 4341.69,  tier: 1, kind: 'emission' },
-    { label: '[O III] 4363',        wave: 4364.44,  tier: 0, kind: 'emission' },
-    { label: 'He I',                wave: 4472.73,  tier: 2, kind: 'emission' },
-    { label: 'Hβ',             wave: 4862.69,  tier: 0, kind: 'emission' },
-    { label: '[O III]',             wave: 4960.29,  tier: 1, kind: 'emission' },
-    { label: '[O III]',             wave: 5008.24,  tier: 0, kind: 'emission' },
-    { label: '[N II]',              wave: 6549.86,  tier: 1, kind: 'emission' },
-    { label: 'Hα',             wave: 6564.61,  tier: 0, kind: 'emission' },
-    { label: '[N II]',              wave: 6585.27,  tier: 0, kind: 'emission' },
-    { label: '[S II]',              wave: 6718.29,  tier: 1, kind: 'emission' },
-    { label: '[S II]',              wave: 6732.68,  tier: 2, kind: 'emission' },
+    { label: 'Ly\u03B1',           wave: 1215.670,  tier: 0, kind: 'emission' },
+    { label: 'N V',                 wave: 1240.81,   tier: 1, kind: 'emission' },
+    { label: 'Si II',               wave: 1263,      tier: 2, kind: 'emission' },
+    { label: 'Si IV',               wave: 1402.770,  tier: 2, kind: 'emission' },
+    { label: 'N IV]',               wave: 1486.496,  tier: 0, kind: 'emission' },
+    { label: 'Si II',               wave: 1526.707,  tier: 2, kind: 'emission' },
+    { label: 'C IV',                wave: 1549.48,   tier: 0, kind: 'emission' },
+    { label: 'He II',               wave: 1640.42,   tier: 1, kind: 'emission' },
+    { label: 'O III]',              wave: 1660.809,  tier: 2, kind: 'emission' },
+    { label: 'O III]',              wave: 1666.15,   tier: 1, kind: 'emission' },
+    { label: 'N III]',              wave: 1750.40,   tier: 0, kind: 'emission' },
+    { label: 'Si III]',             wave: 1882.71,   tier: 2, kind: 'emission' },
+    { label: 'C III]',              wave: 1906.683,  tier: 0, kind: 'emission' },
+    { label: '[O II]',              wave: 3728.48,   tier: 0, kind: 'emission' },
+    { label: 'H10',                 wave: 3798.98,   tier: 2, kind: 'emission' },
+    { label: 'H9',                  wave: 3836.48,   tier: 2, kind: 'emission' },
+    { label: '[Ne III]',            wave: 3869.86,   tier: 1, kind: 'emission' },
+    { label: 'H8 + He I',           wave: 3890.17,   tier: 2, kind: 'emission' },
+    { label: 'H\u03B5 + [Ne III]', wave: 3971.20,   tier: 2, kind: 'emission' },
+    { label: 'H\u03B4',            wave: 4102.90,   tier: 1, kind: 'emission' },
+    { label: 'H\u03B3',            wave: 4341.69,   tier: 1, kind: 'emission' },
+    { label: '[O III] 4363',        wave: 4364.44,   tier: 0, kind: 'emission' },
+    { label: 'He I',                wave: 4472.73,   tier: 2, kind: 'emission' },
+    { label: 'H\u03B2',            wave: 4862.69,   tier: 0, kind: 'emission' },
+    { label: '[O III]',             wave: 4960.29,   tier: 1, kind: 'emission' },
+    { label: '[O III]',             wave: 5008.24,   tier: 0, kind: 'emission' },
+    { label: '[N II]',              wave: 6549.86,   tier: 1, kind: 'emission' },
+    { label: 'H\u03B1',            wave: 6564.63,   tier: 0, kind: 'emission' },
+    { label: '[N II]',              wave: 6585.28,   tier: 0, kind: 'emission' },
+    { label: '[S II]',              wave: 6718.29,   tier: 1, kind: 'emission' },
+    { label: '[S II]',              wave: 6732.67,   tier: 2, kind: 'emission' },
 
-    { label: 'Si II',               wave: 1260.422, tier: 1, kind: 'absorption' },
-    { label: 'O I + Si II',         wave: 1302,     tier: 0, kind: 'absorption' },
-    { label: 'C II',                wave: 1334.532, tier: 0, kind: 'absorption' },
-    { label: 'Si IV',               wave: 1393.3,   tier: 0, kind: 'absorption' },
-    { label: 'Si IV',               wave: 1402.770, tier: 1, kind: 'absorption' },
-    { label: 'Si II',               wave: 1526,     tier: 1, kind: 'absorption' },
-    { label: 'C IV',                wave: 1548.195, tier: 0, kind: 'absorption' },
-    { label: 'Fe II',               wave: 1608.451, tier: 1, kind: 'absorption' },
-    { label: 'Al II',               wave: 1670.787, tier: 0, kind: 'absorption' }
+    { label: 'Si II',               wave: 1260.422,  tier: 1, kind: 'absorption' },
+    { label: 'O I + Si II',         wave: 1303.269,  tier: 0, kind: 'absorption' },
+    { label: 'C II',                wave: 1334.532,  tier: 0, kind: 'absorption' },
+    { label: 'Si IV',               wave: 1393.755,  tier: 0, kind: 'absorption' },
+    { label: 'Si IV',               wave: 1402.770,  tier: 1, kind: 'absorption' },
+    { label: 'Si II',               wave: 1526.707,  tier: 1, kind: 'absorption' },
+    { label: 'C IV',                wave: 1548.187,  tier: 0, kind: 'absorption' },
+    { label: 'Fe II',               wave: 1608.451,  tier: 1, kind: 'absorption' },
+    { label: 'Al II',               wave: 1670.787,  tier: 0, kind: 'absorption' }
   ];
 
   /**
@@ -194,6 +196,16 @@
       var i1 = Math.min(d.n - 1, indexOfWave(state.hi));
       var y = yRangeFor(d.flux, d.err, i0, i1, state.show.band);
 
+      // Reserve a clear strip along the bottom for the absorption labels and
+      // lift the data above it. Anchoring them to a fixed fraction of the panel
+      // instead lets the trace run straight through the text once the vertical
+      // axis rescales on zoom.
+      var absBand = state.show.absorption ? Math.min(72, Math.round(box.h * 0.30)) : 0;
+      if (absBand > 0 && absBand < box.h) {
+        var bandFrac = absBand / box.h;
+        y.lo = (y.lo - bandFrac * y.hi) / (1 - bandFrac);
+      }
+
       function yToPx(v) { return box.y + box.h - ((v - y.lo) / (y.hi - y.lo)) * box.h; }
 
       ctx.fillStyle = PAPER;
@@ -281,11 +293,11 @@
       ctx.font = '9.5px Inter, sans-serif';
       if (state.show.emission) {
         drawLabels(chooseLabels(LINES, state.lo, state.hi, box.w, 11, 'emission'),
-                   ACCENT, box, true);
+                   ACCENT, box, true, absBand);
       }
       if (state.show.absorption) {
         drawLabels(chooseLabels(LINES, state.lo, state.hi, box.w, 11, 'absorption'),
-                   OXIDE, box, false);
+                   OXIDE, box, false, absBand);
       }
 
       // Drag selection
@@ -319,7 +331,7 @@
       rangeLabel.textContent = Math.round(state.lo) + ' – ' + Math.round(state.hi) + ' Å';
     }
 
-    function drawLabels(lines, colour, box, above) {
+    function drawLabels(lines, colour, box, above, band) {
       ctx.save();
       ctx.strokeStyle = colour;
       ctx.globalAlpha = 0.28;
@@ -328,7 +340,7 @@
         var px = waveToX(line.wave);
         ctx.beginPath();
         if (above) { ctx.moveTo(px, box.y); ctx.lineTo(px, box.y + box.h); }
-        else { ctx.moveTo(px, box.y + box.h * 0.62); ctx.lineTo(px, box.y + box.h); }
+        else { ctx.moveTo(px, box.y); ctx.lineTo(px, box.y + box.h - band); }
         ctx.stroke();
       });
       ctx.globalAlpha = 1;
@@ -340,7 +352,7 @@
         var px = waveToX(line.wave);
         ctx.save();
         if (above) { ctx.translate(px, box.y - 4); }
-        else { ctx.translate(px, box.y + box.h * 0.62 - 4); }
+        else { ctx.translate(px, box.y + box.h - 6); }
         ctx.rotate(-Math.PI / 2);
         ctx.fillText(line.label, 0, 0);
         ctx.restore();
