@@ -170,7 +170,7 @@ p { margin: 0 0 13px; }
   align-items: flex-end;
   gap: 12px;
 }
-.card-logo { width: 64px; height: 64px; display: block; }
+.card-logo { width: 104px; height: 104px; display: block; }
 
 /* Under-construction block */
 .placeholder {
@@ -205,7 +205,7 @@ footer {
   .page-body h1 { font-size: 27px; }
   .card-has-logo { flex-direction: column-reverse; gap: 12px; }
   .card-aside { flex-direction: row; align-items: center; gap: 12px; width: 100%; }
-  .card-logo { width: 48px; height: 48px; }
+  .card-logo { width: 56px; height: 56px; }
 }
 
 /* Interactive spectrum */
