@@ -1,0 +1,26 @@
+<figure class="spectrum" id="spectrum">
+  <div class="spectrum-controls">
+    <button type="button" class="ctrl" data-toggle="emission" aria-pressed="true">Emission labels</button>
+    <button type="button" class="ctrl" data-toggle="absorption" aria-pressed="true">Absorption labels</button>
+    <button type="button" class="ctrl" data-toggle="band" aria-pressed="true">Uncertainty band</button>
+    <button type="button" class="ctrl" data-reset>Reset</button>
+    <span class="spectrum-range" data-range aria-live="polite">1000 – 7499 Å</span>
+  </div>
+
+  <div class="spectrum-canvas-wrap">
+    <canvas data-spectrum width="960" height="380"
+            role="img"
+            aria-label="Stacked rest-frame spectrum of 135 galaxies at redshift above six, covering 1000 to 7500 angstroms, with emission and interstellar absorption lines identified."></canvas>
+    <div class="spectrum-readout" data-readout hidden></div>
+  </div>
+
+  <noscript>
+    <img src="/assets/img/spectrum-fallback.png" alt="Stacked rest-frame spectrum of 135 galaxies at redshift above six." style="width:100%">
+  </noscript>
+
+  <figcaption>
+    Median stack of 135 UV-selected galaxies, &minus;21 &lt; M<sub>UV</sub> &lt; &minus;19, from
+    JWST/NIRSpec. Shaded band is the propagated uncertainty. Drag across the panel to zoom, and the
+    vertical scale re-fits to what is in view. Double-click to reset.
+  </figcaption>
+</figure>
