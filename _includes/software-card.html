@@ -1,12 +1,9 @@
 {% assign item = include.item %}
 <div class="card{% if item.logo %} card-has-logo{% endif %}">
-  {% if item.logo %}
-    <img class="card-logo" src="{{ item.logo }}" width="46" height="46" alt="" aria-hidden="true">
-  {% endif %}
   <div class="card-main">
     <div class="card-head">
       <span class="card-title">{{ item.name }}</span>
-      <span class="card-meta">{{ item.meta }}</span>
+      {% unless item.logo %}<span class="card-meta">{{ item.meta }}</span>{% endunless %}
     </div>
     <p class="body-text" style="margin:6px 0 10px">{{ item.tagline }}</p>
     {% if include.full and item.description %}
@@ -18,4 +15,10 @@
       {% endfor %}
     </div>
   </div>
+  {% if item.logo %}
+    <div class="card-aside">
+      <span class="card-meta">{{ item.meta }}</span>
+      <img class="card-logo" src="{{ item.logo }}" width="64" height="64" alt="" aria-hidden="true">
+    </div>
+  {% endif %}
 </div>
