@@ -1,16 +1,21 @@
 {% assign item = include.item %}
-<div class="card">
-  <div class="card-head">
-    <span class="card-title">{{ item.name }}</span>
-    <span class="card-meta">{{ item.meta }}</span>
-  </div>
-  <p class="body-text" style="margin:6px 0 10px">{{ item.tagline }}</p>
-  {% if include.full and item.description %}
-    <p class="body-text measure" style="margin:0 0 12px">{{ item.description }}</p>
+<div class="card{% if item.logo %} card-has-logo{% endif %}">
+  {% if item.logo %}
+    <img class="card-logo" src="{{ item.logo }}" width="46" height="46" alt="" aria-hidden="true">
   {% endif %}
-  <div class="card-links">
-    {% for link in item.links %}
-      <a class="link" href="{{ link.url }}">{{ link.name }}</a>{% unless forloop.last %} &nbsp;·&nbsp; {% endunless %}
-    {% endfor %}
+  <div class="card-main">
+    <div class="card-head">
+      <span class="card-title">{{ item.name }}</span>
+      <span class="card-meta">{{ item.meta }}</span>
+    </div>
+    <p class="body-text" style="margin:6px 0 10px">{{ item.tagline }}</p>
+    {% if include.full and item.description %}
+      <p class="body-text measure" style="margin:0 0 12px">{{ item.description }}</p>
+    {% endif %}
+    <div class="card-links">
+      {% for link in item.links %}
+        <a class="link" href="{{ link.url }}">{{ link.name }}</a>{% unless forloop.last %} &nbsp;·&nbsp; {% endunless %}
+      {% endfor %}
+    </div>
   </div>
 </div>

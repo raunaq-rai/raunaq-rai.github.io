@@ -161,6 +161,9 @@ p { margin: 0 0 13px; }
   white-space: nowrap;
 }
 .card-links { font-family: var(--sans); font-size: 11px; letter-spacing: 0.04em; color: var(--accent); }
+.card-has-logo { display: flex; gap: 16px; align-items: flex-start; }
+.card-logo { width: 46px; height: 46px; flex: none; display: block; margin-top: 2px; }
+.card-main { flex: 1; min-width: 0; }
 
 /* Under-construction block */
 .placeholder {

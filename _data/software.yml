@@ -1,4 +1,5 @@
 - name: jwspecfit
+  logo: /assets/img/jwspecfit-logo.svg
   tagline: Emission-line fitting, MCMC, and chemical abundances for JWST NIRSpec spectra.
   meta: Python · MIT
   description: >-
