@@ -10,13 +10,6 @@
 </div>
 
 <div class="contact-block">
-  <div class="field">Supervisor</div>
-  <div class="val">
-    <a class="link" href="{{ s.supervisor.url }}">{{ s.supervisor.name }}</a>
-  </div>
-</div>
-
-<div class="contact-block">
   <div class="field">Address</div>
   <div class="val">
     {% for line in s.address %}{{ line }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}
