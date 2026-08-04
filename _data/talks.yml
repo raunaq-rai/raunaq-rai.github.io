@@ -1,2 +1,20 @@
-# Add one entry per talk. Fields: title, event, location, date, kind.
-# kind is one of: invited, contributed, poster.
+# One entry per talk, newest first; they render in file order.
+# Fields: title, note (optional), event (optional), location, date,
+# kind (optional: invited, contributed or poster).
+
+- title: A Population Study of the First Billion Years
+  note: >-
+    Population-level constraints on the chemistry of galaxies in the first billion
+    years, using star-formation burstiness to time-order the enrichment processes
+    that govern it.
+  location: University of Toronto
+  date: July 2026
+
+- title: A Population Study of the First Billion Years
+  note: >-
+    Population-level constraints on the chemistry of galaxies in the first billion
+    years, using star-formation burstiness to time-order the enrichment processes
+    that govern it.
+  event: Friday Late Afternoon Talks (FLATS)
+  location: University College London
+  date: April 2026

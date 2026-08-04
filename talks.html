@@ -3,4 +3,23 @@ layout: page
 title: Talks
 permalink: /talks/
 ---
-{% include placeholder.html message="Talks and conference contributions will be listed here." %}
+{% if site.data.talks and site.data.talks.size > 0 %}
+  <p class="body-text measure" style="margin-top:16px">Talks and seminars I have given.</p>
+
+  {% for talk in site.data.talks %}
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">{{ talk.title }}</span>
+        <span class="card-meta">{{ talk.date }}</span>
+      </div>
+      {% if talk.note %}
+        <p class="body-text" style="margin:6px 0 10px">{{ talk.note }}</p>
+      {% endif %}
+      <div class="val">
+        {% if talk.event %}{{ talk.event }}, {% endif %}{{ talk.location }}{% if talk.kind %} &nbsp;·&nbsp; {{ talk.kind }}{% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  {% include placeholder.html message="Talks and conference contributions will be listed here." %}
+{% endif %}
