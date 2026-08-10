@@ -14,16 +14,24 @@ formation and black hole growth.</p>
 
 <div class="kicker">Observing programmes</div>
 {% for prog in site.data.programmes %}
-  <div class="card">
-    <div class="card-head">
-      <span class="card-title">{{ prog.acronym }}</span>
-      <span class="card-meta">JWST Cycle {{ prog.cycle }} &nbsp;·&nbsp; {{ prog.category }} {{ prog.id }}</span>
+  <div class="card{% if prog.logo %} card-has-logo{% endif %}">
+    <div class="card-main">
+      <div class="card-head">
+        <span class="card-title">{{ prog.acronym }}</span>
+        {% unless prog.logo %}<span class="card-meta">JWST Cycle {{ prog.cycle }} &nbsp;·&nbsp; {{ prog.category }} {{ prog.id }}</span>{% endunless %}
+      </div>
+      <p class="body-text" style="margin:6px 0 10px">{{ prog.title }}</p>
+      <p class="body-text" style="margin:0 0 10px; color:var(--muted)">{{ prog.role }} &nbsp;·&nbsp; PI {{ prog.pi }} &nbsp;·&nbsp; {{ prog.hours }} hours allocated</p>
+      <div class="card-links">
+        <a class="link" href="{{ prog.url }}">Programme information</a>
+      </div>
     </div>
-    <p class="body-text" style="margin:6px 0 10px">{{ prog.title }}</p>
-    <p class="body-text" style="margin:0 0 10px; color:var(--muted)">{{ prog.role }} &nbsp;·&nbsp; PI {{ prog.pi }} &nbsp;·&nbsp; {{ prog.hours }} hours allocated</p>
-    <div class="card-links">
-      <a class="link" href="{{ prog.url }}">Programme information</a>
-    </div>
+    {% if prog.logo %}
+      <div class="card-aside">
+        <span class="card-meta">JWST Cycle {{ prog.cycle }} &nbsp;·&nbsp; {{ prog.category }} {{ prog.id }}</span>
+        <img class="card-logo" src="{{ prog.logo }}" width="104" height="104" alt="" aria-hidden="true">
+      </div>
+    {% endif %}
   </div>
 {% endfor %}
 

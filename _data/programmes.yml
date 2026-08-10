@@ -1,5 +1,7 @@
 # One entry per JWST observing programme, in the order they should appear.
-# Fields: acronym, title, id, cycle, category, hours, role, pi, url.
+# Fields: acronym, title, id, cycle, category, hours, role, pi, url, logo.
+#
+# `logo` is optional; where present the card shows it alongside the text.
 #
 # `role` must match the programme's formal investigator list: use
 # Co-Investigator only where the name appears on the STScI record, and
@@ -17,6 +19,7 @@
   role: Co-Investigator
   pi: Tommaso L. Treu
   url: https://www.stsci.edu/jwst/science-execution/program-information?id=9645
+  logo: /assets/img/daje-logo.jpg
 
 - acronym: OMEGA
   title: "Unveiling Early Cosmic Enrichment: Direct Metallicities in z>6 Galaxies from Deep JWST Spectroscopy"
