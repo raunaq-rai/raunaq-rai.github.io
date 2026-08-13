@@ -53,7 +53,7 @@ wavelength, flux and uncertainty. Double-click to reset.</p>
     <div class="card">
       <div class="card-title">{{ pub.title }}</div>
       <p class="body-text" style="margin:6px 0 8px">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-      <div class="card-meta">{{ pub.journal }}{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %} · {{ pub.year }}</div>
+      <div class="card-meta pub-meta">{% if pub.status %}{{ pub.status }} &nbsp;·&nbsp; {% endif %}{{ pub.journal }}{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %} &nbsp;·&nbsp; {{ pub.year }}</div>
       <div class="card-links" style="margin-top:8px">
         {% if pub.arxiv %}<a class="link" href="{{ pub.arxiv }}">arXiv</a>{% endif %}
         {% if pub.ads %} &nbsp;·&nbsp; <a class="link" href="{{ pub.ads }}">ADS</a>{% endif %}

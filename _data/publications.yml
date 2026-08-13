@@ -1,12 +1,11 @@
-# Add one entry per paper. Fields: title, authors, year, journal, volume,
-# pages, arxiv, ads, doi, note. Bold your own name as "**Rai, R.**".
-# Example:
-# - title: An example paper title
-#   authors: "**Rai, R.**, Roberts-Borsani, G., et al."
-#   year: 2027
-#   journal: MNRAS
-#   volume: 500
-#   pages: 1234
-#   arxiv: https://arxiv.org/abs/0000.00000
-#   ads:
-#   doi:
+# Add one entry per paper, newest first. Fields: title, authors, year, journal,
+# volume, pages, status, arxiv, ads, doi, note. Bold your own name as
+# "**Singh Rai, R.**". For a preprint, put the eprint id in `journal` and the
+# submission state in `status`.
+- title: "Unveiling and Characterising Ubiquitous Nitrogen Enhancement in 6 &le; <i>z</i> &le; 10 Galaxies with JWST Spectroscopy"
+  authors: "**Singh Rai, R.**, Roberts-Borsani, G."
+  year: 2026
+  journal: arXiv:2608.10063
+  status: Submitted to MNRAS
+  arxiv: https://arxiv.org/abs/2608.10063
+  ads: https://ui.adsabs.harvard.edu/abs/2026arXiv260810063S

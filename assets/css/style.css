@@ -146,6 +146,7 @@ p { margin: 0 0 13px; }
   white-space: nowrap;
 }
 .card-links { font-family: var(--sans); font-size: 11px; letter-spacing: 0.04em; color: var(--accent); }
+.pub-meta { white-space: normal; }
 .card-has-logo { display: flex; gap: 20px; align-items: flex-start; }
 .card-main { flex: 1; min-width: 0; }
 .card-aside {
