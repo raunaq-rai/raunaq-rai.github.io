@@ -8,7 +8,35 @@ spectrum: true
 billion years, measured from JWST/NIRSpec spectroscopy, and what they imply about early star
 formation and black hole growth.</p>
 
-{% include placeholder.html message="A fuller account of the individual projects is on its way." %}
+<div class="rule" style="margin:30px 0 22px"></div>
+
+<div class="kicker">Publications</div>
+{% if site.data.publications and site.data.publications.size > 0 %}
+  {% for pub in site.data.publications %}
+    <div class="card">
+      <div class="card-title">{{ pub.title }}</div>
+      <p class="body-text" style="margin:6px 0 8px">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+      <div class="card-meta pub-meta">{% if pub.status %}{{ pub.status }} &nbsp;·&nbsp; {% endif %}{{ pub.journal }}{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %} &nbsp;·&nbsp; {{ pub.year }}</div>
+      <div class="card-links" style="margin-top:8px">
+        {% if pub.arxiv %}<a class="link" href="{{ pub.arxiv }}">arXiv</a>{% endif %}
+        {% if pub.ads %} &nbsp;·&nbsp; <a class="link" href="{{ pub.ads }}">ADS</a>{% endif %}
+        {% if pub.doi %} &nbsp;·&nbsp; <a class="link" href="{{ pub.doi }}">DOI</a>{% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  {% include placeholder.html message="My papers will appear here as they come out." %}
+{% endif %}
+
+<div class="rule" style="margin:30px 0 22px"></div>
+
+<div class="kicker">Explore the data</div>
+<h2 class="section-title">A stack of 135 galaxies at <i>z</i> &gt; 6</h2>
+<p class="body-text measure" style="margin-top:10px">Rest-frame 1000 to 7500 Å, from JWST NIRSpec.
+Drag across the panel to zoom, and the vertical scale re-fits to what is in view. Hover for
+wavelength, flux and uncertainty. Double-click to reset.</p>
+
+{% include spectrum.html %}
 
 <div class="rule" style="margin:30px 0 22px"></div>
 
@@ -34,33 +62,3 @@ formation and black hole growth.</p>
     {% endif %}
   </div>
 {% endfor %}
-
-<div class="rule" style="margin:30px 0 22px"></div>
-
-<div class="kicker">Explore the data</div>
-<h2 class="section-title">A stack of 135 galaxies at <i>z</i> &gt; 6</h2>
-<p class="body-text measure" style="margin-top:10px">Rest-frame 1000 to 7500 Å, from JWST NIRSpec.
-Drag across the panel to zoom, and the vertical scale re-fits to what is in view. Hover for
-wavelength, flux and uncertainty. Double-click to reset.</p>
-
-{% include spectrum.html %}
-
-<div class="rule" style="margin:30px 0 22px"></div>
-
-<div class="kicker">Publications</div>
-{% if site.data.publications and site.data.publications.size > 0 %}
-  {% for pub in site.data.publications %}
-    <div class="card">
-      <div class="card-title">{{ pub.title }}</div>
-      <p class="body-text" style="margin:6px 0 8px">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-      <div class="card-meta pub-meta">{% if pub.status %}{{ pub.status }} &nbsp;·&nbsp; {% endif %}{{ pub.journal }}{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %} &nbsp;·&nbsp; {{ pub.year }}</div>
-      <div class="card-links" style="margin-top:8px">
-        {% if pub.arxiv %}<a class="link" href="{{ pub.arxiv }}">arXiv</a>{% endif %}
-        {% if pub.ads %} &nbsp;·&nbsp; <a class="link" href="{{ pub.ads }}">ADS</a>{% endif %}
-        {% if pub.doi %} &nbsp;·&nbsp; <a class="link" href="{{ pub.doi }}">DOI</a>{% endif %}
-      </div>
-    </div>
-  {% endfor %}
-{% else %}
-  {% include placeholder.html message="My papers will appear here as they come out." %}
-{% endif %}

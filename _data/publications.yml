@@ -1,11 +1,12 @@
 # Add one entry per paper, newest first. Fields: title, authors, year, journal,
 # volume, pages, status, arxiv, ads, doi, note. Bold your own name as
-# "**Singh Rai, R.**". For a preprint, put the eprint id in `journal` and the
+# "**Rai, R. S.**". For a preprint, put the eprint id in `journal` and the
 # submission state in `status`.
 - title: "Unveiling and Characterising Ubiquitous Nitrogen Enhancement in 6 &le; <i>z</i> &le; 10 Galaxies with JWST Spectroscopy"
-  authors: "**Singh Rai, R.**, Roberts-Borsani, G."
+  authors: "**Rai, R. S.**, Roberts-Borsani, G."
   year: 2026
   journal: arXiv:2608.10063
   status: Submitted to MNRAS
   arxiv: https://arxiv.org/abs/2608.10063
-  ads: https://ui.adsabs.harvard.edu/abs/2026arXiv260810063S
+  ads: https://ui.adsabs.harvard.edu/abs/2026arXiv260810063R
+  doi: https://doi.org/10.48550/arXiv.2608.10063
