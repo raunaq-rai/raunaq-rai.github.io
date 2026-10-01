@@ -2,6 +2,13 @@
 # volume, pages, status, arxiv, ads, doi, note. Bold your own name as
 # "**Rai, R. S.**". For a preprint, put the eprint id in `journal` and the
 # submission state in `status`.
+- title: "Precise C-N-O Abundances of Individual Galaxies in the First Billion Years from Ultra-Deep, Rest-UV-to-Optical JWST Spectroscopy"
+  authors: "**Rai, R. S.**, Roberts-Borsani, G., Sanders, R., Shapley, A. E., Clarke, L., Oesch, P. A., Schaerer, D., Marques-Chaves, R., Meyer, R. A., Giovinazzo, E., Karthikeyan, S."
+  year: 2026
+  journal: arXiv:2609.35526
+  arxiv: https://arxiv.org/abs/2609.35526
+  ads: https://ui.adsabs.harvard.edu/abs/2026arXiv260935526S
+  doi: https://doi.org/10.48550/arXiv.2609.35526
 - title: "Unveiling and Characterising Ubiquitous Nitrogen Enhancement in 6 &le; <i>z</i> &le; 10 Galaxies with JWST Spectroscopy"
   authors: "**Rai, R. S.**, Roberts-Borsani, G."
   year: 2026
